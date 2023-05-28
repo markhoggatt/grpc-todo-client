@@ -8,10 +8,13 @@
 import SwiftUI
 
 @main
-struct TodoClientApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
+struct TodoClientApp: App
+{
+	var body: some Scene
+	{
+		WindowGroup
+		{
+			ContentView()
+		}
+	}
 }
