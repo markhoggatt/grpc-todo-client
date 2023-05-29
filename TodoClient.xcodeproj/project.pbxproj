@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE85E6502A24AB5D000072C6 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE85E64F2A24AB5D000072C6 /* Todo.swift */; };
+		BE8E90862A2354A30093AD12 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = BE8E90852A2354A30093AD12 /* SwiftProtobuf */; };
+		BE8E90882A2354A30093AD12 /* SwiftProtobufPluginLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = BE8E90872A2354A30093AD12 /* SwiftProtobufPluginLibrary */; };
+		BE8E908A2A2354A30093AD12 /* protoc-gen-swift in Frameworks */ = {isa = PBXBuildFile; productRef = BE8E90892A2354A30093AD12 /* protoc-gen-swift */; };
+		BE8E908C2A2356B90093AD12 /* todo.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8E908B2A2356B90093AD12 /* todo.pb.swift */; };
+		BE8E908E2A2369620093AD12 /* todo.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8E908D2A2369620093AD12 /* todo.grpc.swift */; };
+		BE8E90912A236A2E0093AD12 /* CGRPCZlib in Frameworks */ = {isa = PBXBuildFile; productRef = BE8E90902A236A2E0093AD12 /* CGRPCZlib */; };
+		BE8E90932A236A2E0093AD12 /* GRPC in Frameworks */ = {isa = PBXBuildFile; productRef = BE8E90922A236A2E0093AD12 /* GRPC */; };
+		BE8E90962A236E9D0093AD12 /* GrpcInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE8E90952A236E9D0093AD12 /* GrpcInteractor.swift */; };
 		BED089752A2333CD0026F0C6 /* TodoClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED089742A2333CD0026F0C6 /* TodoClientApp.swift */; };
 		BED089772A2333CD0026F0C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED089762A2333CD0026F0C6 /* ContentView.swift */; };
 		BED089792A2333CE0026F0C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BED089782A2333CE0026F0C6 /* Assets.xcassets */; };
@@ -34,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE85E64F2A24AB5D000072C6 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		BE8E908B2A2356B90093AD12 /* todo.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = todo.pb.swift; sourceTree = "<group>"; };
+		BE8E908D2A2369620093AD12 /* todo.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = todo.grpc.swift; sourceTree = "<group>"; };
+		BE8E90952A236E9D0093AD12 /* GrpcInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrpcInteractor.swift; sourceTree = "<group>"; };
 		BED089712A2333CD0026F0C6 /* TodoClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BED089742A2333CD0026F0C6 /* TodoClientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoClientApp.swift; sourceTree = "<group>"; };
 		BED089762A2333CD0026F0C6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,6 +65,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE8E90882A2354A30093AD12 /* SwiftProtobufPluginLibrary in Frameworks */,
+				BE8E90932A236A2E0093AD12 /* GRPC in Frameworks */,
+				BE8E90912A236A2E0093AD12 /* CGRPCZlib in Frameworks */,
+				BE8E90862A2354A30093AD12 /* SwiftProtobuf in Frameworks */,
+				BE8E908A2A2354A30093AD12 /* protoc-gen-swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +90,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE85E64E2A24AB23000072C6 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				BE8E908B2A2356B90093AD12 /* todo.pb.swift */,
+				BE8E908D2A2369620093AD12 /* todo.grpc.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		BE8E90812A23529C0093AD12 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				BE85E64F2A24AB5D000072C6 /* Todo.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		BE8E90942A236E840093AD12 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				BE8E90952A236E9D0093AD12 /* GrpcInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		BED089682A2333CD0026F0C6 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +138,9 @@
 		BED089732A2333CD0026F0C6 /* TodoClient */ = {
 			isa = PBXGroup;
 			children = (
+				BE85E64E2A24AB23000072C6 /* Generated */,
+				BE8E90942A236E840093AD12 /* Interactor */,
+				BE8E90812A23529C0093AD12 /* Entity */,
 				BED089742A2333CD0026F0C6 /* TodoClientApp.swift */,
 				BED089762A2333CD0026F0C6 /* ContentView.swift */,
 				BED089782A2333CE0026F0C6 /* Assets.xcassets */,
@@ -145,6 +191,13 @@
 			dependencies = (
 			);
 			name = TodoClient;
+			packageProductDependencies = (
+				BE8E90852A2354A30093AD12 /* SwiftProtobuf */,
+				BE8E90872A2354A30093AD12 /* SwiftProtobufPluginLibrary */,
+				BE8E90892A2354A30093AD12 /* protoc-gen-swift */,
+				BE8E90902A236A2E0093AD12 /* CGRPCZlib */,
+				BE8E90922A236A2E0093AD12 /* GRPC */,
+			);
 			productName = TodoClient;
 			productReference = BED089712A2333CD0026F0C6 /* TodoClient.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +270,10 @@
 				Base,
 			);
 			mainGroup = BED089682A2333CD0026F0C6;
+			packageReferences = (
+				BE8E90842A2354A30093AD12 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
+				BE8E908F2A236A2E0093AD12 /* XCRemoteSwiftPackageReference "grpc-swift" */,
+			);
 			productRefGroup = BED089722A2333CD0026F0C6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -260,7 +317,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BED089772A2333CD0026F0C6 /* ContentView.swift in Sources */,
+				BE85E6502A24AB5D000072C6 /* Todo.swift in Sources */,
 				BED089752A2333CD0026F0C6 /* TodoClientApp.swift in Sources */,
+				BE8E908E2A2369620093AD12 /* todo.grpc.swift in Sources */,
+				BE8E908C2A2356B90093AD12 /* todo.pb.swift in Sources */,
+				BE8E90962A236E9D0093AD12 /* GrpcInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,6 +637,53 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BE8E90842A2354A30093AD12 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-protobuf.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		BE8E908F2A236A2E0093AD12 /* XCRemoteSwiftPackageReference "grpc-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/grpc/grpc-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BE8E90852A2354A30093AD12 /* SwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE8E90842A2354A30093AD12 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobuf;
+		};
+		BE8E90872A2354A30093AD12 /* SwiftProtobufPluginLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE8E90842A2354A30093AD12 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobufPluginLibrary;
+		};
+		BE8E90892A2354A30093AD12 /* protoc-gen-swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE8E90842A2354A30093AD12 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = "protoc-gen-swift";
+		};
+		BE8E90902A236A2E0093AD12 /* CGRPCZlib */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE8E908F2A236A2E0093AD12 /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = CGRPCZlib;
+		};
+		BE8E90922A236A2E0093AD12 /* GRPC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE8E908F2A236A2E0093AD12 /* XCRemoteSwiftPackageReference "grpc-swift" */;
+			productName = GRPC;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BED089692A2333CD0026F0C6 /* Project object */;
 }

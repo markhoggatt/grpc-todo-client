@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View
 {
+	@State fileprivate var todos: [Todo] = []
+
 	var body: some View
 	{
 		VStack
@@ -16,7 +18,16 @@ struct ContentView: View
 			Image(systemName: "globe")
 				.imageScale(.large)
 				.foregroundColor(.accentColor)
-			Text("Hello, world!")
+
+			ForEach(todos)
+			{
+				Text($0.title)
+			}
+		}
+		.task
+		{
+			let grpc = GrpcInteractor()
+			todos = await grpc.retrieveTodos()
 		}
 		.padding()
 	}
