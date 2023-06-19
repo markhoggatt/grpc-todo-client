@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View
 {
 	@State fileprivate var todos: [Todo] = []
+	@State fileprivate var shouldShowAdd: Bool = false
+	@State fileprivate var newTitle: String = ""
 
 	var body: some View
 	{
@@ -19,9 +21,46 @@ struct ContentView: View
 				.imageScale(.large)
 				.foregroundColor(.accentColor)
 
-			ForEach(todos)
+			VStack(alignment: .leading)
 			{
-				Text($0.title)
+				ForEach(todos)
+				{
+					Text($0.title)
+						.padding(10)
+				}
+			}
+
+			Button(action:
+			{
+				shouldShowAdd = true
+			}, label:
+			{
+				Image(systemName: "plus")
+			})
+
+			if shouldShowAdd
+			{
+				TextField("Title", text: $newTitle)
+					.padding()
+
+				Button(action:
+				{
+					shouldShowAdd = false
+					let grpc = GrpcInteractor()
+					let todo = Todo(title: newTitle)
+
+					Task
+					{
+						let savedTodo: Todo = await grpc.createTodo(from: todo)
+						if let _ = savedTodo.id
+						{
+							todos.append(savedTodo)
+						}
+					}
+				}, label:
+				{
+					Text("Update")
+				})
 			}
 		}
 		.task
@@ -29,7 +68,6 @@ struct ContentView: View
 			let grpc = GrpcInteractor()
 			todos = await grpc.retrieveTodos()
 		}
-		.padding()
 	}
 }
 
